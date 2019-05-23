@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time" />
+    <TextView
+        android:id="@+id/date"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/time"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"/>
+
+    <TextView
+        android:id="@+id/wifi_status"
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:layout_toLeftOf="@id/imgWifi"
+        android:text="IP Address is: " />
+
+    <TextView
+        android:id="@+id/txtIPAddress"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/wifi_status"
+        android:layout_toLeftOf="@id/imgWifi"
+        android:text="" />
+
+    <ImageView
+        android:id="@+id/imgWifi"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_signal_wifi_off_bar_black_48dp" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:src="?android:attr/actionModeCloseDrawable" />
+
+    <ImageView
+        android:id="@+id/qrImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/date" />
+    <TextView
+        android:id="@+id/textRfid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/qrImage"
+        android:layout_marginTop="20dp"
+        android:text="Scan QR code with camera"
+        android:gravity="center"
+        android:textSize="30sp" />
+</RelativeLayout>
