@@ -144,7 +144,7 @@ public class MainActivity extends Activity implements NPNHomeView, TextToSpeech.
 
     private boolean isAllowProcess = true;
 
-    private String link = "http://192.168.0.188:3000/api/android/android?code=";
+    private String link = "http://f67bda42.ngrok.io/api/android/android?code=";
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //do they have the data
@@ -174,6 +174,8 @@ public class MainActivity extends Activity implements NPNHomeView, TextToSpeech.
         //message = "1";
         if(message.equals("0")) {
             Log.d(TAG, "Wrong code");
+            String speakWords = "Mã không hợp lệ";
+            niceTTS.speak(speakWords, TextToSpeech.QUEUE_FLUSH, null);
             final Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.dialog);
             dialog.setCancelable(true);
@@ -233,6 +235,8 @@ public class MainActivity extends Activity implements NPNHomeView, TextToSpeech.
     public void onErrorUpdateServer(String message) {
         //txtConsole.setText("Request server is fail");
         Log.d(TAG, "Request server is fail");
+        String speakWords = "Không có kết nối đến máy chủ";
+        niceTTS.speak(speakWords, TextToSpeech.QUEUE_FLUSH, null);
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog);
         dialog.setCancelable(true);
@@ -427,7 +431,7 @@ public class MainActivity extends Activity implements NPNHomeView, TextToSpeech.
             } else txtIPAddress.setText("No connection");
 
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
             date.setText(format.format(new Date()));
             format = new SimpleDateFormat("hh:mm");
@@ -520,7 +524,7 @@ public class MainActivity extends Activity implements NPNHomeView, TextToSpeech.
                             } else txtIPAddress.setText("No connection");
 
                             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-                            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
+                            sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
                             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                             date.setText(format.format(new Date()));
                             format = new SimpleDateFormat("hh:mm");
